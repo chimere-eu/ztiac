@@ -2,10 +2,47 @@
 
 Zero Trust Infrastructure-as-Code is a Terraform/OpenTofu project that provides a collection of reusable modules and templates to easily deploy secure cloud infrastructures on SecNumCloud-certified providers (currently Outscale).
 
+## Features
 
+This project includes:
 
+- A [VPC](./modules/vpc/README.md) Module: Simplifies the deployment of virtual public and private networks with NAT and internet gateways and is compatible with advanced configurations like peering.
+- A [Compute](./modules/compute/README.md) Module: Manages virtual machine deployments, supporting configurations like [OpenPubkey SSH](https://github.com/openpubkey/opkssh) for secure access and reverse proxy setups with [Caddy](https://caddyserver.com) or Zero Trust Network Access setup with [Chimere](https://chimere.eu).
+- Templates: Detailed infrastructure examples, including multi-tier architectures, to illustrate real-world deployment scenarios.
 
+## Getting Started
+### Requirements
+Before deploying any template, ensure you have the following:
 
+- Terraform version >= 1.0 or Opentofu
+- Access to the Outscale cloud platform
+- Valid Outscale API credentials
+
+### Deployment Steps
+
+To deploy one of the templates do the following:
+
+1. Clone the Repository:
+```bash
+git clone https://github.com/chimere-eu/ztiac.git
+cd ztiac/templates/vpc-with-nat
+# For this example we chose vpc-with-nat but it would be the same for every other template
+```
+2.  Prepare your environmet:
+      - Create a `terraform.tfvars` file with necessary credentials and variables.
+3. Initialize Terraform:
+```bash
+terraform init
+```
+4. Preview and Deploy:
+```bash
+# Run terraform plan to see the execution plan
+terraform plan
+# Apply your desired template with terraform apply
+terraform apply
+```
+5. Cleanup:
+     -  To remove deployed resources, execute `terraform destroy`.
 
 ## Contribute
 We welcome contributions from the community! To contribute, please fork the repository, create a new branch for your changes, and submit a pull request. Make sure to follow our coding standards and include clear documentation for any new features or modules. For major changes, please open an issue first to discuss your proposed modifications. All contributions are reviewed for quality and security before being merged.
