@@ -6,8 +6,8 @@ Zero Trust Infrastructure-as-Code is a Terraform/OpenTofu project that provides 
 
 This project includes:
 
-- A [VPC](./modules/vpc/README.md) Module: Simplifies the deployment of virtual public and private networks with NAT and internet gateways and is compatible with advanced configurations like peering.
-- A [Compute](./modules/compute/README.md) Module: Manages virtual machine deployments, supporting configurations like [OpenPubkey SSH](https://github.com/openpubkey/opkssh) for secure access and reverse proxy setups with [Caddy](https://caddyserver.com) or Zero Trust Network Access setup with [Chimere](https://chimere.eu).
+- A [VPC](./modules/outscale/vpc/README.md) Module: Simplifies the deployment of virtual public and private networks with NAT and internet gateways and is compatible with advanced configurations like peering.
+- A [Compute](./modules/outscale/compute/README.md) Module: Manages virtual machine deployments, supporting configurations like [OpenPubkey SSH](https://github.com/openpubkey/opkssh) for secure access and reverse proxy setups with [Caddy](https://caddyserver.com) or Zero Trust Network Access setup with [Chimere](https://chimere.eu).
 - Templates: Detailed infrastructure examples, including multi-tier architectures, to illustrate real-world deployment scenarios.
 
 ## Getting Started
@@ -25,7 +25,7 @@ To deploy one of the templates do the following:
 1. Clone the Repository:
 ```bash
 git clone https://github.com/chimere-eu/ztiac.git
-cd ztiac/templates/vpc-with-nat
+cd ztiac/templates/outscale/vpc-with-nat
 # For this example we chose vpc-with-nat but it would be the same for every other template
 ```
 2.  Prepare your environmet:
