@@ -46,11 +46,11 @@ terraform apply
 
 ## Contribute
 We welcome contributions from the community! To contribute, please fork the repository, create a new branch for your changes, and submit a pull request. Make sure to follow our coding standards and include clear documentation for any new features or modules. For major changes, please open an issue first to discuss your proposed modifications. All contributions are reviewed for quality and security before being merged.
-  
+
 For detailed guidelines on contributing, please refer to our [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
 
-## Security 
+## Security
 If you discover a security vulnerability or have concerns regarding the security of this project, please report it responsibly by emailing us at [security@chimere.eu](mailto:security@chimere.eu). Do not disclose security issues publicly until they have been reviewed and addressed. We appreciate your help in keeping this project and its users safe.
 
 ___

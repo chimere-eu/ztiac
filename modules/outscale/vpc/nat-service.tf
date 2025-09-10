@@ -10,16 +10,12 @@ resource "outscale_nat_service" "this" {
 }
 
 locals {
-  nb_nat_gateway = length(var.private_subnets) == 0 || var.enable_nat_gateway == false  ? 0 : ( var.shared_nat ? 1 : (  var.one_nat_gateway_per_az ? min(length(var.availability_zones),length(var.public_subnets)) : length(var.private_subnets)) )
+  nb_nat_gateway = length(var.private_subnets) == 0 || var.enable_nat_gateway == false ? 0 : (var.shared_nat ? 1 : (var.one_nat_gateway_per_az ? min(length(var.availability_zones), length(var.public_subnets)) : length(var.private_subnets)))
 }
 
 check "nat_configuration" {
   assert {
-    condition     = ( local.nb_nat_gateway <= local.len_public_subnets && var.enable_nat_gateway == true ) || var.enable_nat_gateway == false
+    condition     = (local.nb_nat_gateway <= local.len_public_subnets && var.enable_nat_gateway == true) || var.enable_nat_gateway == false
     error_message = "ERROR: When shared_nat is false their should be as many public subnets as NAT gatways"
   }
-}
-
-output "nat" {
-  value = local.nb_nat_gateway
 }

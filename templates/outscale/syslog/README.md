@@ -48,9 +48,9 @@ templates/outscale/syslog/
    terraform apply
    ```
 
-## 🧪 Test the Syslog server 
+## 🧪 Test the Syslog server
 
-SSH to the syslog server and client using the public ip 
+SSH to the syslog server and client using the public ip
 
 ```bash
 ssh outscale@<syslog-server-ip> -i ./my_key.pem
@@ -79,4 +79,4 @@ terraform destroy
 ## 📌 Notes
 
 >[!TIP]
-> Every terraform command can be replaced by opentofu with the same arguments.  
+> Every terraform command can be replaced by opentofu with the same arguments.

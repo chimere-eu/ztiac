@@ -21,7 +21,7 @@ resource "outscale_keypair" "my_keypair" {
 
 
 module "vm" {
-  source = "github.com/chimere-eu/ztiac/modules/outscale/compute"
+  source             = "github.com/chimere-eu/ztiac/modules/outscale/compute"
   subnet_id          = "subnet-a15ae162"
   security_group_ids = [outscale_security_group.sg.security_group_id]
   vm_type            = var.vm_type
@@ -30,15 +30,10 @@ module "vm" {
   keypair_name       = outscale_keypair.my_keypair.keypair_name
   name               = "opk-demo"
   assign_public_ip   = true
-  key_file           = "./ssh_keys"
   user_data          = file("config.yaml.tpl")
   user_data_type     = "cloud-config"
   openpubkey = {
     enable           = true
     use_auth_id_file = true
   }
-}
-
-output "vm" {
-  value = module.vm.public_ip
 }

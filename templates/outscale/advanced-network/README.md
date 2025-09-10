@@ -1,6 +1,6 @@
 # Network Example
 
-This example shows the how to create muliple network using the module VPC.  
+This example shows the how to create muliple network using the module VPC.
 It include two networks with each having their own public and private subnets as well as an example of NAT and internet gateway setup.
 In this example these two networks are peered with each other allowing communication between their subnets.
 Finally an example of DMZ network is created.
@@ -59,7 +59,4 @@ terraform destroy
 ## 📌 Notes
 
 >[!TIP]
-> Every terraform command can be replaced by opentofu with the same arguments.  
-
-
-
+> Every terraform command can be replaced by opentofu with the same arguments.

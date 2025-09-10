@@ -1,6 +1,6 @@
 # Two Tier Architecure Example
 
-## 🔍 Overview 
+## 🔍 Overview
 
 This example showcases how to deploy a two tier achitecture on the Outscale cloud platform.
 You'll find one private loab balancer serving two instances representing the "backend". One internet facing load balancer serving two instances representing the "frontend". They themselves are pointing to the internal  load balancer.
@@ -65,4 +65,4 @@ terraform destroy
 ## 📌 Notes
 
 >[!TIP]
-> Every terraform command can be replaced by opentofu with the same arguments.  
+> Every terraform command can be replaced by opentofu with the same arguments.

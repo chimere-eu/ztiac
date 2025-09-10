@@ -29,7 +29,7 @@ The `chimere` option take a list of the following parameters:
 - port: the port on which your service is listening
 - urls: a list of urls that will be used to access your service
 - vault_token: a vault or openbao token to retrieve the secret holding the registration key
-- secret_url: full url to the vault/openbao secret from which to retreive the registration key  
+- secret_url: full url to the vault/openbao secret from which to retreive the registration key
 
 
 ```hcl
@@ -62,7 +62,7 @@ module "vm" {
 
 >[!NOTE]
 > To make this work their need to be a key/value secret present on a reachable vault/openbao.
-> The secret must contain a key named registration_key and the value should be set to a registration key from the chimere manager. 
+> The secret must contain a key named registration_key and the value should be set to a registration key from the chimere manager.
 
 ## 🚀 Deployment Steps
 
@@ -94,7 +94,7 @@ module "vm" {
 ## 🧪 Test the deployment
 
 SSH to the newly deployed VM using the public ip shown by the output of terraform/opentofu.
-You should be able to see the list of chimere service running on the server: 
+You should be able to see the list of chimere service running on the server:
 
 ```bash
 ssh outscale@<public-ip> -i ./my_key.pem
@@ -126,4 +126,4 @@ terraform destroy
 ## 📌 Notes
 
 >[!TIP]
-> Every terraform command can be replaced by opentofu with the same arguments.  
+> Every terraform command can be replaced by opentofu with the same arguments.

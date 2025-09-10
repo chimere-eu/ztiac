@@ -2,7 +2,7 @@
 
 Terraform module to create Networks on Outscale.
 
-# Usage 
+# Usage
 
 ```hcl
 module "vpc" {
@@ -21,7 +21,7 @@ There are three scenerios for creating NAT gateway:
   - One NAT gateway is created per availablity zone (default)
   - One NAT gateway is created per subnet
   - One single NAT gateway is shared by all private subnets of the network
-### One NAT gateway per AZ (default) 
+### One NAT gateway per AZ (default)
 Here subnets are created across 3 AZs and one NAT gateway will be created for each one of them.
 
 >[!WARNING]
@@ -44,7 +44,7 @@ module "vpc" {
 
  <img src="../../docs/images/one_nat_gateway_per_az.png" alt="drawing" width="400"/>
 
-### One NAT gateway per subnet 
+### One NAT gateway per subnet
 Here there are as many NAT gateway that there are subnets
 
 >[!WARNING]
@@ -68,7 +68,7 @@ module "vpc" {
  <img src="../../docs/images/one_nat_gateway_per_subnet.png" alt="drawing" width="400"/>
 
 ### One Single NAT gateway
-Here a single NAT gateway is created and shared among all the private subntes. 
+Here a single NAT gateway is created and shared among all the private subntes.
 ```hcl
 module "vpc" {
   source             = "github.com/chimere-eu/ztiac/modules/outscale/vpc"
@@ -90,8 +90,8 @@ module "vpc" {
 ## Route tables
 
 Similar to the NAT gateway scenarios, you have two options for the route tables of the private and public subnets. All public and private subnets can either:
-  - have their own route table (default) 
-  - have one route table shared across all private subnets and/or one route table shared across all public subnets. 
+  - have their own route table (default)
+  - have one route table shared across all private subnets and/or one route table shared across all public subnets.
 
 ```hcl
 module "vpc" {
@@ -117,15 +117,19 @@ TO DO:
 - [Basic network example](../../../templates/outscale/vpc-with-nat/README.md)
 - [Advanced exmaple with net peering and a DMZ](../../../templates/outscale/advanced-network/README.md)
 
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
+| <a name="requirement_outscale"></a> [outscale](#requirement\_outscale) | >= 1.1.3 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_outscale"></a> [outscale](#provider\_outscale) | n/a |
+| <a name="provider_outscale"></a> [outscale](#provider\_outscale) | >= 1.1.3 |
 
 ## Modules
 
@@ -170,7 +174,6 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_internet_service_id"></a> [internet\_service\_id](#output\_internet\_service\_id) | ID of the internet service |
-| <a name="output_nat"></a> [nat](#output\_nat) | n/a |
 | <a name="output_nat_gateways"></a> [nat\_gateways](#output\_nat\_gateways) | List of ID, name and IP of the NAT gateway(s) |
 | <a name="output_private_rtb"></a> [private\_rtb](#output\_private\_rtb) | List of ID and name of the private route table(s) |
 | <a name="output_private_subnets"></a> [private\_subnets](#output\_private\_subnets) | List of ID and name of the private subnet(s) |
@@ -178,3 +181,4 @@ No modules.
 | <a name="output_public_subnets"></a> [public\_subnets](#output\_public\_subnets) | List of ID and name of the public subnet(s) |
 | <a name="output_vpc_cidr"></a> [vpc\_cidr](#output\_vpc\_cidr) | CIDR of the network |
 | <a name="output_vpc_id"></a> [vpc\_id](#output\_vpc\_id) | ID of the network |
+<!-- END_TF_DOCS -->

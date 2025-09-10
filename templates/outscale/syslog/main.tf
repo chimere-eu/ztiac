@@ -80,10 +80,6 @@ resource "outscale_keypair" "my_keypair" {
   public_key   = file(var.public_key_path)
 }
 
-output "public_ips" {
-  value = [module.vm.public_ip, module.vm2.public_ip]
-}
-
 locals {
   client = templatefile("./syslog-client.sh",
     {

@@ -1,6 +1,6 @@
 # Reverse Proxy Deployment Example
 
-## 🔍 Overview 
+## 🔍 Overview
 
 This example showcases how to deploy a VM and configure a ready to use reverse proxy with [Caddy](https://caddyserver.com/) on the Outscale cloud platform.
 
@@ -53,9 +53,9 @@ templates/outscale/reverse-proxy/
 ## ⚙️ Configuration Details
 There are two configuration options for the reverse proxy.
 ### Quick configuration
-You can setup a quick reverse proxy by using the variable 
+You can setup a quick reverse proxy by using the variable
 reverse_proxy with the following parameters:
-- address: The address or domain on which the reverse proxy will be accessed 
+- address: The address or domain on which the reverse proxy will be accessed
 - port: Port in which the reverse proxy will listen
 - upstream: Address and port of the backend server
 
@@ -67,8 +67,8 @@ module "reverse_proxy" {
   reverse_proxy = {
     address = "127.0.0.1"
     port = 443
-    upstream = "127.0.0.7:5000" 
-   }  
+    upstream = "127.0.0.7:5000"
+   }
 }
 
 ```
@@ -82,7 +82,7 @@ module "reverse_proxy" {
   ...
   reverse_proxy         = {
     caddyfile = file("./Caddyfile")
-  }  
+  }
 }
 ```
 
@@ -109,4 +109,4 @@ terraform destroy
 ## 📌 Notes
 
 >[!TIP]
-> Every terraform command can be replaced by opentofu with the same arguments.  
+> Every terraform command can be replaced by opentofu with the same arguments.

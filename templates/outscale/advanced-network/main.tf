@@ -27,7 +27,7 @@ module "net2" {
 }
 
 
-module "DMZ" {
+module "dmz" {
   source                    = "github.com/chimere-eu/ztiac/modules/outscale/vpc"
   name                      = "DMZ"
   availability_zones        = ["cloudgouv-eu-west-1a", "cloudgouv-eu-west-1b", "cloudgouv-eu-west-1c"]

@@ -1,6 +1,6 @@
 # Bastion Example
 
-## 🔍 Overview 
+## 🔍 Overview
 
 Simple example to deploy a VM and access it through a bastion on the Outscale cloud platform.
 The Bastion is assigned a public IP in a public network, the VM to access is located in a private network and accept ssh connection from the bastion exclusively.
@@ -60,4 +60,4 @@ terraform destroy
 ## 📌 Notes
 
 >[!TIP]
-> Every terraform command can be replaced by opentofu with the same arguments.  
+> Every terraform command can be replaced by opentofu with the same arguments.
