@@ -25,7 +25,7 @@ variable "name" {
 
 variable "security_group_ids" {
   description = "value"
-  type = list(string)
+  type        = list(string)
 }
 
 variable "block_device_mappings" {
@@ -45,20 +45,20 @@ variable "block_device_mappings" {
 
 variable "assign_public_ip" {
   description = "Assign a public IP to the VM if true."
-  type = bool
-  default = false
+  type        = bool
+  default     = false
 }
 
 variable "private_ip" {
   description = "Private IP of the VM. It must be inside the range of the subnet cidr"
-  type = string
-  default = ""
+  type        = string
+  default     = ""
 }
 
 variable "user_data" {
   description = "Data or script used to add a specific configuration to the VM. It must not be Base64-encoded"
-  type =  string
-  default = null
+  type        = string
+  default     = null
 }
 
 variable "user_data_type" {
@@ -73,8 +73,8 @@ variable "user_data_type" {
 
 variable "key_file" {
   description = "Path to an extra file that contains ssh public key to add to the VM"
-  type = string
-  default = null
+  type        = string
+  default     = null
 }
 
 variable "openpubkey" {
@@ -92,6 +92,7 @@ variable "openpubkey" {
     use_auth_id_file   = false,
     auth_id_file       = "auth_id"
   }
+  description = "Openpubkey SSH configuration block"
 }
 
 variable "chimere" {
@@ -103,15 +104,18 @@ variable "chimere" {
     secret_url  = string
     urls        = list(string)
   }))
-  default = null
+  default     = null
+  description = "Chimere configuration block"
+
 }
 
 variable "reverse_proxy" {
   type = object({
-    address= optional(string)
-    port= optional(number)
-    upstream= optional(string)
+    address   = optional(string)
+    port      = optional(number)
+    upstream  = optional(string)
     caddyfile = optional(string)
   })
-  default = null
+  default     = null
+  description = "Reverse proxy configuration block"
 }

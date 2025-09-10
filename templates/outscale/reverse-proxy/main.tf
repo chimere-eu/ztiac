@@ -57,10 +57,6 @@ module "vm" {
   }
 }
 
-output "vm" {
-  value = module.vm.public_ip
-}
-
 module "reverse_proxy2" {
   source             = "github.com/chimere-eu/ztiac/modules/outscale/compute"
   subnet_id          = "subnet-3a1bff68"
@@ -73,8 +69,4 @@ module "reverse_proxy2" {
   reverse_proxy = {
     caddyfile = file("./Caddyfile")
   }
-}
-
-output "vm2" {
-  value = module.reverse_proxy2.public_ip
 }

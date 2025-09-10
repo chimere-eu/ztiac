@@ -94,7 +94,3 @@ resource "outscale_keypair" "my_keypair" {
   keypair_name = "bastion-example-keypair"
   public_key   = file(var.public_key_path)
 }
-
-output "bastion_ip" {
-  value = module.bastion.public_ip
-}

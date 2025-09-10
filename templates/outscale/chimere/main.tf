@@ -55,7 +55,3 @@ resource "outscale_keypair" "my_keypair" {
   keypair_name = "chimere-example-keypair"
   public_key   = file(var.public_key_path)
 }
-
-output "public_ip" {
-  value = module.vm.public_ip
-}

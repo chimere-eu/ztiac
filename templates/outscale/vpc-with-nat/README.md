@@ -1,6 +1,6 @@
 # VPC with NAT Example
 
-## 🔍 Overview 
+## 🔍 Overview
 
 Simple example to deploy a VPC with public/private network and NAT gateways to access internet from the private network on the Outscale cloud platform.
 
@@ -59,4 +59,4 @@ terraform destroy
 ## 📌 Notes
 
 >[!TIP]
-> Every terraform command can be replaced by opentofu with the same arguments.  
+> Every terraform command can be replaced by opentofu with the same arguments.

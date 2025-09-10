@@ -3,7 +3,7 @@
 Terraform module to create Virtual Machines on Outscale.
 Virtual Machines can be customized to add features like ssh using your IDP ([OpenPubKey SSH](https://github.com/openpubkey/opkssh)) or securely publish you application using a Zero Trust Network Access solution [Chimere](https://chimere.eu).
 ## Usage
- 
+
 ### Basic single VM
 ```hcl
 module "vm" {
@@ -26,7 +26,7 @@ module "vm" {
   image_id              = "ami-0ab908cc"
   keypair_name          = "my_keypair"
   name                  = "myvm"
-  block_device_mappings = [ 
+  block_device_mappings = [
     {
       device_name = "/dev/sda1"
       bsu         = {
@@ -49,7 +49,7 @@ module "vm" {
 ```
 
 ### SSH Key File
-This module allows to add ssh public key to the `authorized_keys` file of the first user inside the VM. E.g. `ubuntu` or `outscale` depending on the image.	
+This module allows to add ssh public key to the `authorized_keys` file of the first user inside the VM. E.g. `ubuntu` or `outscale` depending on the image.
 ```hcl
 module "vm" {
   source             = "github.com/chimere-eu/ztiac/modules/outscale/compute"
@@ -102,7 +102,7 @@ https://accounts.google.com 206584157355-7cbe4s640tvm7naoludob4ut1emii7sf.apps.g
 ```bash
 # auth_id
 
-# Example of custom auth_id file 
+# Example of custom auth_id file
 # email/sub principal issuer
 alice alice@example.com https://accounts.google.com
 
@@ -164,18 +164,25 @@ Find out more about this in the template [reverse-proxy](../../../templates/outs
 - [With Syslog](../../../templates/outscale/syslog/README.md)
 - [With a reverse proxy](../../../templates/outscale/reverse-proxy/README.md)
 
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
+| <a name="requirement_cloudinit"></a> [cloudinit](#requirement\_cloudinit) | >=2.3.0 |
+| <a name="requirement_local"></a> [local](#requirement\_local) | >=2.5.0 |
+| <a name="requirement_outscale"></a> [outscale](#requirement\_outscale) | >= 1.1.3 |
+| <a name="requirement_template"></a> [template](#requirement\_template) | >=2.2.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_cloudinit"></a> [cloudinit](#provider\_cloudinit) | n/a |
-| <a name="provider_local"></a> [local](#provider\_local) | n/a |
-| <a name="provider_outscale"></a> [outscale](#provider\_outscale) | n/a |
-| <a name="provider_template"></a> [template](#provider\_template) | n/a |
+| <a name="provider_cloudinit"></a> [cloudinit](#provider\_cloudinit) | >=2.3.0 |
+| <a name="provider_local"></a> [local](#provider\_local) | >=2.5.0 |
+| <a name="provider_outscale"></a> [outscale](#provider\_outscale) | >= 1.1.3 |
+| <a name="provider_template"></a> [template](#provider\_template) | >=2.2.0 |
 
 ## Modules
 
@@ -199,14 +206,14 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_assign_public_ip"></a> [assign\_public\_ip](#input\_assign\_public\_ip) | Assign a public IP to the VM if true. | `bool` | `false` | no |
 | <a name="input_block_device_mappings"></a> [block\_device\_mappings](#input\_block\_device\_mappings) | List of block device mappings | <pre>list(object({<br/>    device_name = string<br/>    bsu = object({<br/>      volume_size           = number<br/>      volume_type           = string<br/>      snapshot_id           = optional(string)<br/>      iops                  = optional(number)<br/>      delete_on_vm_deletion = optional(bool)<br/>    })<br/>  }))</pre> | `[]` | no |
-| <a name="input_chimere"></a> [chimere](#input\_chimere) | n/a | <pre>list(object({<br/>    name        = string<br/>    address     = string<br/>    port        = number<br/>    vault_token = string<br/>    secret_url  = string<br/>    urls        = list(string)<br/>  }))</pre> | `null` | no |
+| <a name="input_chimere"></a> [chimere](#input\_chimere) | Chimere configuration block | <pre>list(object({<br/>    name        = string<br/>    address     = string<br/>    port        = number<br/>    vault_token = string<br/>    secret_url  = string<br/>    urls        = list(string)<br/>  }))</pre> | `null` | no |
 | <a name="input_image_id"></a> [image\_id](#input\_image\_id) | The ID of the image to use | `string` | n/a | yes |
 | <a name="input_key_file"></a> [key\_file](#input\_key\_file) | Path to an extra file that contains ssh public key to add to the VM | `string` | `null` | no |
 | <a name="input_keypair_name"></a> [keypair\_name](#input\_keypair\_name) | SSH key pair name | `string` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | Name tag for the VM | `string` | n/a | yes |
-| <a name="input_openpubkey"></a> [openpubkey](#input\_openpubkey) | n/a | <pre>object({<br/>    enable             = optional(bool),<br/>    use_providers_file = optional(bool),<br/>    providers_file     = optional(string),<br/>    use_auth_id_file   = optional(bool),<br/>    auth_id_file       = optional(string)<br/>  })</pre> | <pre>{<br/>  "auth_id_file": "auth_id",<br/>  "enable": false,<br/>  "providers_file": "providers",<br/>  "use_auth_id_file": false,<br/>  "use_providers_file": false<br/>}</pre> | no |
+| <a name="input_openpubkey"></a> [openpubkey](#input\_openpubkey) | Openpubkey SSH configuration block | <pre>object({<br/>    enable             = optional(bool),<br/>    use_providers_file = optional(bool),<br/>    providers_file     = optional(string),<br/>    use_auth_id_file   = optional(bool),<br/>    auth_id_file       = optional(string)<br/>  })</pre> | <pre>{<br/>  "auth_id_file": "auth_id",<br/>  "enable": false,<br/>  "providers_file": "providers",<br/>  "use_auth_id_file": false,<br/>  "use_providers_file": false<br/>}</pre> | no |
 | <a name="input_private_ip"></a> [private\_ip](#input\_private\_ip) | Private IP of the VM. It must be inside the range of the subnet cidr | `string` | `""` | no |
-| <a name="input_reverse_proxy"></a> [reverse\_proxy](#input\_reverse\_proxy) | n/a | <pre>object({<br/>    address= optional(string)<br/>    port= optional(number)<br/>    upstream= optional(string)<br/>    caddyfile = optional(string)<br/>  })</pre> | `null` | no |
+| <a name="input_reverse_proxy"></a> [reverse\_proxy](#input\_reverse\_proxy) | Reverse proxy configuration block | <pre>object({<br/>    address   = optional(string)<br/>    port      = optional(number)<br/>    upstream  = optional(string)<br/>    caddyfile = optional(string)<br/>  })</pre> | `null` | no |
 | <a name="input_security_group_ids"></a> [security\_group\_ids](#input\_security\_group\_ids) | value | `list(string)` | n/a | yes |
 | <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | Subnet to deploy the VM | `string` | n/a | yes |
 | <a name="input_user_data"></a> [user\_data](#input\_user\_data) | Data or script used to add a specific configuration to the VM. It must not be Base64-encoded | `string` | `null` | no |
@@ -220,4 +227,4 @@ No modules.
 | <a name="output_instance_id"></a> [instance\_id](#output\_instance\_id) | ID of the VM |
 | <a name="output_private_ip"></a> [private\_ip](#output\_private\_ip) | Private IP of the VM |
 | <a name="output_public_ip"></a> [public\_ip](#output\_public\_ip) | Public IP of the VM |
-| <a name="output_user_data"></a> [user\_data](#output\_user\_data) | n/a |
+<!-- END_TF_DOCS -->

@@ -17,7 +17,7 @@ Before deploying, ensure you have the following installed:
 ```
 templates/outscale/openpubkey/
 ├── auth_id             # opkssh configuration file determining which identities are allowed to connect to what linux user accounts
-├── providers           # opkssh configuration file containing a list of allowed IDPs 
+├── providers           # opkssh configuration file containing a list of allowed IDPs
 ├── main.tf             # Main infrastructure
 ├── outscale.tf         # Outscale provider configuration
 └── variables.tf        # Definitions of input variables for Terraform
@@ -61,10 +61,10 @@ opkssh login
 and login to the IDP you configured in the `auth_id` file.
 For example if this was the auth_id file:
 > alice alice@example.com https://accounts.google.com
-> 
+>
 you would login with the google account `alice@example.com` and then ssh using the user alice:
 ```bash
-ssh alice@<server-ip> 
+ssh alice@<server-ip>
 ```
 
 ## 🧹 Cleanup
@@ -77,4 +77,4 @@ terraform destroy
 ## 📌 Notes
 
 >[!TIP]
-> Every terraform command can be replaced by opentofu with the same arguments.  
+> Every terraform command can be replaced by opentofu with the same arguments.
